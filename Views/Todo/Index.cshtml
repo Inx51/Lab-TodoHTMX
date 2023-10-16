@@ -1,0 +1,23 @@
+@model List<TodoHtmx.Models.TodoItem>
+
+<h1>Todos</h1>
+
+<div class="new-todo">
+    <form hx-post="/Todo/AddItem" hx-target=".added-items" hx-swap="beforeend">
+        <input placeholder="Title" name="title" id="title" type="text"/><br/>
+        <br/>
+        <textarea placeholder="Description" name="description" id="description"></textarea>
+        <br/>
+        <button type="submit">Add</button>
+    </form>
+</div>
+<hr/>
+
+<div class="list-todos">
+    @foreach (var item in Model)
+    {
+        @await Html.PartialAsync("TodoItem", item)
+    }
+    <div class="added-items"></div>
+    <div></div>
+</div>

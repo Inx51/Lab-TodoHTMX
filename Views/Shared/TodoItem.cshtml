@@ -1,0 +1,10 @@
+﻿@model TodoHtmx.Models.TodoItem
+
+<div data-id="@Model.Id">
+    <b>@Model.Title</b>
+    <p>@Model.Description</p>
+    <button hx-post="/DeleteItem/@Model.Id" type="submit" hx-trigger="click" hx-swap="delete" hx-target="div[data-id='@Model.Id']" >Done</button>
+    <br/>
+    <br/>
+    <hr/>
+</div>
